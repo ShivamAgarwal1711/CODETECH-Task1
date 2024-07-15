@@ -1,0 +1,48 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    double temp, celsius, fahrenheit, kelvin;
+    char scale;
+
+    cout << "Enter the temperature value: ";
+    cin >> temp;
+
+    cout << "Enter the temperature scale (C, F, or K): ";
+    cin >> scale;
+
+    // Perform temperature conversion
+    switch (scale) {
+        case 'C':
+        case 'c':
+            celsius = temp;
+            fahrenheit = (temp * 9.0 / 5.0) + 32.0;
+            kelvin = temp + 273.15;
+            break;
+        case 'F':
+        case 'f':
+            celsius = (temp - 32.0) * 5.0 / 9.0;
+            fahrenheit = temp;
+            kelvin = celsius + 273.15;
+            break;
+        case 'K':
+        case 'k':
+            celsius = temp - 273.15;
+            fahrenheit = (temp - 273.15) * 9.0 / 5.0 + 32.0;
+            kelvin = temp;
+            break;
+        default:
+            cout << "Invalid temperature scale. Please enter C, F, or K." << endl;
+            return 1;
+    }
+
+    // Display the results
+    cout << fixed << setprecision(2);
+    cout << "Temperature in Celsius: " << celsius << " °C" << endl;
+    cout << "Temperature in Fahrenheit: " << fahrenheit << " °F" << endl;
+    cout << "Temperature in Kelvin: " << kelvin << " K" << endl;
+
+    return 0;
+}
